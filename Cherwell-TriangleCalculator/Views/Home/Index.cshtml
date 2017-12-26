@@ -1,0 +1,118 @@
+﻿<div id="body">
+    <div class="container-fluid">       
+
+        <div class="col-lg-4" >
+            <h2>The Triangles</h2>
+            <p>Displayed at 5X Magnification</p>
+            <canvas id="myCanvas" width="300" height="300" style="border:double"></canvas>
+        </div>
+        <div class="col-lg-3">
+            <h2>Rows/Columns</h2>
+            <p>The location of a right triangle</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Column</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select class="selectpicker" id="row">
+                              <option value="A">A</option>
+                              <option value="B">B</option>
+                              <option value="C">C</option>
+                              <option value="D">D</option>
+                              <option value="E">E</option>
+                              <option value="F">F</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="selectpicker" id="column">
+                                @{  int i = 1;
+                                    while (i <= 12)
+                                    {
+                                        <option value="@i">@i</option>
+                                        i++;
+                                    }
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-5">
+            <h2>The Coordinates</h2>
+            <p>The Coordinates of a right triangle</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>X Coordinate</th>
+                        <th>Y Coordinate</th>
+                        <th>
+                            <button type="button" id="btnSubmit" class="btn btn-success">Apply</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon1">V1x</span>
+                                <input id="v1x" type="text" class="form-control" aria-describedby="addon1">
+                            </span>
+                        </td>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon2">V1y</span>
+                                <input id="v1y" type="text" class="form-control" aria-describedby="addon2">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon3">V2x</span>
+                                <input id="v2x" type="text" class="form-control" aria-describedby="addon3">
+                            </span>
+                        </td>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon4">V2y</span>
+                                <input id="v2y" type="text" class="form-control" aria-describedby="addon4">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon5">V3x</span>
+                                <input id="v3x" type="text" class="form-control" aria-describedby="addon5">
+                            </span>
+                        </td>
+                        <td>
+                            <span class="input-group">
+                                <span class="input-group-addon" id="addon6">V3y</span>
+                                <input id="v3y" type="text" class="form-control" aria-describedby="addon6">
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    @Scripts.Render("~/scripts/custom/Triangle.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Triangle();
+        });
+    </script>
+}
